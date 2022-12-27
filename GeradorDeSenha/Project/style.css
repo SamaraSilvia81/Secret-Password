@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@100;300;400;500;700;900&family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap');
 
 * {
   margin: 0;
@@ -8,20 +8,23 @@
   font-size: x-large;
 }
 
+nav {
+  font-family: system-ui, -apple-system, Arial, Helvetica, sans-serif;
+}
+
 body {
   height: 100vh;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
+  background-image: url('./wallpaper.jpg');
+  background-size: cover;
   background-color: #f7f7f7;
 }
 
-main {
-  padding: 20px;
-  box-shadow: 0 1px 10px #ccc;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+main{
+  display: grid;
+  grid-template-columns: 2fr 50%;
 }
 
 main > div {
@@ -30,12 +33,22 @@ main > div {
   gap: 10px;
 }
 
-#symbols{
-    
+h2 {
+   color: rgb(184, 150, 243); /*ghostwhite*/
+   margin-left: 10%; /* 90px */
+   padding: 4% 0 3%;  /* 40px */
+   font-size: 40px; /* 40px */
+}
+
+p {
+  padding-top: 20px;
+  text-align: justify;
+  margin-left: 5px;
 }
 
 input {
   padding: 5px;
+  width: 78%;
   outline: none;
   accent-color: blueviolet;
   border-color: blueviolet;
@@ -47,7 +60,9 @@ input[type=checkbox] {
 }
 
 input[type=range] {
+  padding: 3%;
   width: 90%;
+  color: #fff;
 }
 
 button {
@@ -56,4 +71,66 @@ button {
   color: white;
   border: none;
   padding: 5px;
+}
+
+#boxCreate {
+  padding: 5%; /*20px*/
+  margin: 0 25%;
+  width: 90%;
+  background-color: #fff;
+  box-shadow: 0 1px 10px #fff; /* box-shadow: 0 15px 30px rgba(0,0,0,0.3);*/
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#listPassword{
+  border: 2px solid white;
+  padding: 20px 20px;
+  margin: 0 20%;
+}
+
+#listPassword > div{
+  background-color: #fff;
+  height: 63vh;
+  padding: 2% 5% 2%;
+  overflow-y: scroll;
+  right: 30px;
+  /*max-width: 100%;*/
+}
+
+#listPassword > div > h2{
+  color: rgb(72, 70, 74);
+  margin: 0;
+}
+
+#listPassword > div > p{
+  font-size: 20px;
+  color: blueviolet;
+}
+
+#btnCopy{
+  padding: 1% 4%;
+}
+
+#btnGerar{
+  padding: 1%;
+  margin: 5% 0;
+}
+
+#boxDelete{
+  margin: 1% 0;
+}
+
+#inputDelete{
+  width: 26%;
+}
+
+.bi-shield-lock-fill{
+  margin-right: 1%;
+  font-size: 30px;
+}
+
+.bi-clipboard2{
+  margin-right: 7px;
 }
