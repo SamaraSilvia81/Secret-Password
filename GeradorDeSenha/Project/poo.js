@@ -26,10 +26,8 @@ class GeneratePassword {
 
     changeInput() {
         infoLength.innerHTML = lenInput.value;
-
         lenInput.addEventListener("change", () => {
             infoLength.innerHTML = lenInput.value;
-            console.log(lenInput.value)
             this.createPassword(
                 chkNumber.checked,
                 chkSymbols.checked,
@@ -42,6 +40,7 @@ class GeneratePassword {
 
     btnCreatePassword(){
         btnGerar.addEventListener("click", () => {
+            this.updatePassword();
             this.createPassword(
                 chkNumber.checked,
                 chkSymbols.checked,
@@ -62,19 +61,17 @@ class GeneratePassword {
 
     copyPassword(){
         navigator.clipboard.writeText(passInput.value);
-        console.log(passInput.value)
+        console.log("CopyPassword: ",passInput.value)
         alert('Texto copiado para área de transferência! Ctrl+V em algum local para colar');
     }
 
     listPassword(){
-
         const ul = document.querySelector("#elementList");
         const li = document.createElement('li');
         const textList = document.createTextNode(passInput.value);
 
         ul.appendChild(li);
         li.appendChild(textList);
-    
     }
 
     createPassword = (
@@ -98,12 +95,12 @@ class GeneratePassword {
 
         for (let i = 0; i < lenght; i++) {
           const randomIndex = Math.floor(Math.random() * newArray.length);
-          //console.log(randomIndex)
           password += newArray[randomIndex];
         }
 
         passInput.value = password;
-        localStorage.setItem("Password: ", passInput.value);
+        localStorage.setItem("Password: ", password);
+
         console.log(password)
   
         this.updatePassword();
@@ -113,31 +110,29 @@ class GeneratePassword {
     updatePassword(){
 
         let valueInputDelete = inputDelete.value
-
+    
         if(valueInputDelete != ""){
-
-            console.log("Password Updated!")
 
             let separateString = valueInputDelete.split("")
             //console.log(separateString)
 
             for(let ele of separateString) {
-            for(let sym of symbols) {
+                for(let sym of symbols) {
                     //console.log("ele" + ele)
                     //console.log("sym" + sym)
                     if(ele == sym){
                         symbols.splice(symbols.indexOf(sym),1)
                         console.log("newSymbols:" + symbols)
                     }
-            }
-            for(let num of numbers) {
-                //console.log("ele" + ele)
-                //console.log("sym" + num)
-                    if(ele == num){
-                        numbers.splice(numbers.indexOf(num),1)
-                        console.log("newNumber:" + numbers)
-                    }
                 }
+                for(let num of numbers) {
+                    //console.log("ele" + ele)
+                    //console.log("sym" + num)
+                        if(ele == num){
+                            numbers.splice(numbers.indexOf(num),1)
+                            console.log("newNumber:" + numbers)
+                        }
+                    }
                 for(let charLower of LowercaseCaracters) {
                     //console.log("ele" + ele)
                     //console.log("char" + charLower)
@@ -155,12 +150,12 @@ class GeneratePassword {
                     }
                 }
             }
+
+            console.log("Password Updated!")
+            //inputDelete.value = ""
         }
     }
-
 }
-
-    
 
 const password = new GeneratePassword()
 

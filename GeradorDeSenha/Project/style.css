@@ -8,6 +8,20 @@
   font-size: x-large;
 }
 
+input[type=text]:focus {
+  outline: none;
+}
+
+a{
+  text-decoration: none;
+  color: #fff;
+}
+
+a:hover{
+  color:rgb(184, 150, 243);
+  cursor: pointer;
+}
+
 nav {
   font-family: system-ui, -apple-system, Arial, Helvetica, sans-serif;
 }
@@ -35,7 +49,7 @@ main > div {
 
 h2 {
    color: rgb(184, 150, 243); /*ghostwhite*/
-   margin-left: 10%; /* 90px */
+   margin-left: 12%; /* 90px */
    padding: 4% 0 3%;  /* 40px */
    font-size: 40px; /* 40px */
 }
@@ -59,8 +73,11 @@ input[type=checkbox] {
   height: 18px;
 }
 
+#range{
+  padding: 2%;
+}
+
 input[type=range] {
-  padding: 3%;
   width: 90%;
   color: #fff;
 }
@@ -74,8 +91,10 @@ button {
 }
 
 #boxCreate {
-  padding: 5%; /*20px*/
-  margin: 0 25%;
+  padding: 7% 5% 8%; /*20px */
+  margin: 3% 25%;
+  height: 60vh;
+  /*border-radius: 2%;*/
   width: 90%;
   background-color: #fff;
   box-shadow: 0 1px 10px #fff; /* box-shadow: 0 15px 30px rgba(0,0,0,0.3);*/
@@ -87,13 +106,14 @@ button {
 #listPassword{
   border: 2px solid white;
   padding: 20px 20px;
-  margin: 0 20%;
+  height: 60vh;
+  margin: 3% 20%;
 }
 
 #listPassword > div{
   background-color: #fff;
-  height: 63vh;
-  padding: 2% 5% 2%;
+  height: 55vh;
+  padding: 3% 5% 2%;
   overflow-y: scroll;
   right: 30px;
   /*max-width: 100%;*/
@@ -111,11 +131,23 @@ button {
 
 #btnCopy{
   padding: 1% 4%;
+  transition: all 0.5s;
+}
+
+#btnCopy:hover{
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 #btnGerar{
   padding: 1%;
   margin: 5% 0;
+  transition: all 0.5s;
+}
+
+#btnGerar:hover{
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 #boxDelete{
@@ -133,4 +165,9 @@ button {
 
 .bi-clipboard2{
   margin-right: 7px;
+}
+
+.bi-github{
+  margin-left: 62%;
+  font-size: 30px;
 }

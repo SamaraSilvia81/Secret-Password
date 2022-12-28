@@ -18,44 +18,53 @@
 
   <header>
     <nav>
-        <h2><i class="bi bi-shield-lock-fill"></i>Secret Password</h2> 
-    </nav> 
+      <h2>
+        <i class="bi bi-shield-lock-fill"></i>Secret Password
+        <a href="https://github.com/SamaraSilvia81" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/samara-silvia-9a2a26231" target="_blank"><i class="bi bi-linkedin"></i></a>
+      </h2>
+    </nav>
   </header>
 
   <main>
 
      <section id="boxCreate">
-      <div>
+
+      <div class="boxInputPassword">
+        <label for="inputPasswordId"></label>
         <input id="inputPasswordId" type="text"/>
         <button id="btnCopy"><i class="bi bi-clipboard2"></i>Copy</button>
       </div>
-      
-      <div>
-        <input id="inputLengthId" type="range" min="5" max="1000"/>
-        <label for="inputLengthId"></label>
-      </div>
   
-      <div>
-        <input id="chkLowerId" type="checkbox" />
-        <label for="chkLowerId">Letras minúsculas</label>
+      <div id="option">
+
+        <div id="range">
+          <input id="inputLengthId" type="range" min="5" max="100"/>
+          <label for="inputLengthId"></label>
+        </div>
+
+        <div>
+          <input id="chkLowerId" type="checkbox" />
+          <label for="chkLowerId">Letras minúsculas</label>
+        </div>
+
+        <div>
+          <input id="chkUpperId" type="checkbox" />
+          <label for="chkUpperId">Letras maiúsculas</label>
+        </div>
+
+        <div>
+          <input id="chkNumberId" type="checkbox" />
+          <label for="chkNumberId">Números</label>
+        </div>
+
+        <div>
+          <input id="chkSymbolsId" type="checkbox" />
+          <label for="chkSymbolsId">Símbolos</label>
+        </div>
       </div>
-  
-      <div>
-        <input id="chkUpperId" type="checkbox" />
-        <label for="chkUpperId">Letras maiúsculas</label>
-      </div>
-  
-      <div>
-        <input id="chkNumberId" type="checkbox" />
-        <label for="chkNumberId">Números</label>
-      </div>
-  
-      <div>
-        <input id="chkSymbolsId" type="checkbox" />
-        <label for="chkSymbolsId">Símbolos</label>
-      </div>
-  
-      <div id="boxDelete">
+
+       <div id="boxDelete">
           <label id="textDelete">Selecione os caracteres que você quer deletar</label>
           <input type="text" id="inputDelete">
       </div>
@@ -71,7 +80,7 @@
       </section>
   
   </main>
-  
+
   <script src="poo.js"></script>
 </body>
 </html>
