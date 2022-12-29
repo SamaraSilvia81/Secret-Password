@@ -1,6 +1,7 @@
 const passInput = document.querySelector("#inputPasswordId")
 const inputDelete = document.querySelector("#inputDelete")
 const lenInput = document.querySelector("#inputLengthId");
+const btnDeleteLocalStorage = document.querySelector("#btnDeleteLocalStorage");
 const infoLength = document.querySelector('label[for="inputLengthId"]');
 const btnCopy = document.querySelector("#btnCopy");
 const localCopy = '';
@@ -65,13 +66,40 @@ class GeneratePassword {
         alert('Texto copiado para área de transferência! Ctrl+V em algum local para colar');
     }
 
-    listPassword(){
-        const ul = document.querySelector("#elementList");
-        const li = document.createElement('li');
-        const textList = document.createTextNode(passInput.value);
+    reload(){
 
-        ul.appendChild(li);
-        li.appendChild(textList);
+        // Função para exibir todos os dados
+        const div = document.querySelector("#elementList");
+
+        let values = JSON.stringify([...JSON.parse(localStorage.getItem('passwords'))]);
+        let dict = JSON.parse(values)
+
+        for(let secret in dict){
+            if(dict[secret].value != undefined){
+                div.appendChild(document.createTextNode('◾ '));
+                div.appendChild(document.createTextNode(dict[secret].value));
+                div.appendChild(document.createElement('br'));
+            }
+        }
+    }
+
+    listPassword(){
+
+        // Função para pegar os dados salvos do localSotrage
+        const div = document.querySelector("#elementList");
+
+        let values = JSON.stringify([...JSON.parse(localStorage.getItem('passwords'))]);
+        let dict = JSON.parse(values)
+
+        //console.log(dict)
+        //console.log(typeof dict)
+        let lenght = dict.length
+
+        if(dict[lenght-1].value != undefined){
+            div.appendChild(document.createTextNode('◾ '));
+            div.appendChild(document.createTextNode(dict[lenght-1].value));
+            div.appendChild(document.createElement('br'));
+        }
     }
 
     createPassword = (
@@ -98,14 +126,48 @@ class GeneratePassword {
           password += newArray[randomIndex];
         }
 
-        passInput.value = password;
-        localStorage.setItem("Password: ", password);
+        let valuePassword = ''
+        valuePassword = passInput.value = password;
 
-        console.log(password)
+        console.log(valuePassword)
   
         this.updatePassword();
         this.listPassword();
+        this.saveLocalStorage(valuePassword);
     };
+
+    saveLocalStorage(value){
+
+        // Criando objeto com dados dos inputs
+        const dataObj = { value };
+        //console.log(dataObj);
+
+        /* Todo valor do localstorage é null no inicio (antes de adicionarmos algum valor nele),
+        Por isso checamos se é null, ou seja, se será o primeiro item a ser adicionado.
+        */
+        if (localStorage.getItem('passwords') === null) {
+            // Adicionando um array com um objeto no localstorage
+            localStorage.setItem('passwords', JSON.stringify([dataObj]));
+        } else {
+            // Copiando o array existente no localstorage e adicionando o novo objeto ao final.
+            localStorage.setItem(
+            'passwords',
+            // O JSON.parse transforma a string em JSON novamente, o inverso do JSON.strigify
+            JSON.stringify([
+                ...JSON.parse(localStorage.getItem('passwords')),
+                dataObj
+            ])
+        )};
+
+        this.btnDeleteLocalStorage();
+    }
+
+    btnDeleteLocalStorage(){
+        btnDeleteLocalStorage.addEventListener("click", () => {
+            localStorage.clear();
+            window.location.reload();
+        });
+    }
 
     updatePassword(){
 
@@ -159,6 +221,10 @@ class GeneratePassword {
 
 const password = new GeneratePassword()
 
+password.saveLocalStorage();
 password.changeInput();
+password.listPassword();
 password.btnCreatePassword();
 password.btnCopyPassword();
+password.btnDeleteLocalStorage();
+password.reload();
