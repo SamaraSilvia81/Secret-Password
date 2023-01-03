@@ -30,6 +30,7 @@
 - `Local Storage:` Recurso usado para armazenar os dados web. Ele foi usado para caso o usuário não queira perder as senhas criadas, elas estarão no seu navegador, funcionando como um simples "banco de dados".
 
 ## Métodos da Classe "Generate Password"
+> Classe mãe usada para compor todo projeto, tendo uma relação íntima de método com método a partir de chamadas expressas pelo "this".
 
 - `Constructor:` Função usada na instanciação dos objetos criados a partir da classe. Logo, quando eu chamar a minha classe é o construtor que será ativado, por isso coloquei o input como elemento principal para exibir as senhas criadas, já que as funções estarão atuando em cima dele.
 - `Button:` Os métodos _btnCreatePassword_, _btnDeleteLocalStorage_ e _btnCopyPassword_ são funções específicas para capturar os botões de criar a senha, deletar a lista de senha e capturar a cópia das senhas.
