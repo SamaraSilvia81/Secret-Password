@@ -35,8 +35,9 @@
 - `Button:` Os métodos _btnCreatePassword_, _btnDeleteLocalStorage_ e _btnCopyPassword_ são funções específicas para capturar os botões de criar a senha, deletar a lista de senha e capturar a cópia das senhas.
 - `CreatePassword:` É a função principal, sendo usada para criar as senhas a partir dos parâmetros que são os eventos de click da checkbox. Com isso, se os valores desses "checks" forem true, então serão armazenados dentro de um array que junto com laço de repetição criará um número aleatório com esses dados ao invés de números em si, dispondo tudo dentro da variável "password" que será manipulada em outras funções.
 - `UpdatePassword:` Uma das vastas funcionalidades do projeto é a possibilidade de você selecionar quais caracteres NÃO quer na sua senha. Portanto, foi criado essa função para atualizar a senha criada na função anterior, tudo a partir de uma manipulação de dados por um "for of", no qual verificará por condicionais se existe algo dentro do "input" respectivo a tal função e que se tal se assemelhará com uma das constantes criadas para letras maiúsculas, símbolos e afins identificar e o eliminar com o método splice().
+- `saveLocalStorage:` É um método usado para _salvar a cada criação_ no local storage, sendo esses valores armazendos como objetos na variável "dataObj".
+- `listPassword:` É um método para literalmente listar todas as minhas senhas criadas. Nesse viés, usaremos os valores guardados na variável "dataObj", no qual será convertido para string e acessado cada valor por um "For in" e analisado por uma condicional e com isso enviar para o html, por meio de uma manipulação do dom "createTextNode".
+- `reload:` É a função usada para atualizar a página após clicar no botão de deletar, visto que após primeiro se deleta no local storage e para que essa atualização seja vista no html é preciso um refresh na página.
 
-
-  
 ## Resultado
 ![Cópia](https://user-images.githubusercontent.com/113690864/209976165-a69ab41d-d72b-4d8a-a269-83c71a503557.gif)
