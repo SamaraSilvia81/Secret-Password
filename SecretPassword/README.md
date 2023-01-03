@@ -21,11 +21,13 @@
 > A organização do projeto se divide em alguns assuntos que eu estudei/revisei alocados na pasta "Study" e o próprio projeto em si na pasta "Project".
 
 - `Semântica:` Para fins de boas práticas utilizei o conceito de semântica no HTML, subdividindo o corpo do site em cabeçalho e parte principal, no qual a mesma terá duas seções: criar senha e a lista das senhas.
-
 - `Checkbox:` Input especial para dá um status booleano a algum aspecto que eu queira, nesse caso é para os caracteres na minha senha.
 - `Label:` Para fins de usabilidade foi utilizado esse elemento em cada input e button.
 - `Range:` Input especial para ditar o tamanho da minha senha, sendo capturado o seu evento de "change".
 - `Button:` Elemento geral que ao ser capturado no evento de click se conectará com o range e os checkboxs.
+- `POO:` Para a aplicabilidade do JavaScript foi usado os conceitos e paradigmas de POO, além de algumas noções de "Análise de Projetos de Software" como o SOLID, respeitando um de seus princípios, no qual uma única classe, nesse caso função, corresponderá a apenas uma única responsabilidade.
+- `Class:` Todo a lógica do projeto está disposta em uma única class "Generate Password", no qual possui métodos específicos para cada funcionalidade do projeto como,por exemplo, criar senha, colocar as senhas criadas em uma lista, copiar e colar, salvar os dados no localStorage e afins.
+- `Local Storage:` Recurso usado para armazenar os dados web. Ele foi usado para caso o usuário não queira perder as senhas criadas, elas estarão no seu navegador, funcionando como um simples "banco de dados".
 
 
   
