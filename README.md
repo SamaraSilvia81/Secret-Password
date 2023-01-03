@@ -7,4 +7,4 @@
 > Este repositório tem como intuito registrar projetos front-end, colocando em prática meus aprendizados na trilha do estagiário.
 
 ## Links e Deploys
-- Gerador de Senha:
+- Secret Password: http://secretpassword.surge.sh/
