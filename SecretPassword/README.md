@@ -14,8 +14,8 @@
 
 - HTML: Linguagem de marcação usada para estruturar o site.
 - CSS: Estilização para dar cor e trazer consigo aspectos de usabilidade para o usuário.
-- JS: 
-- Bootstrap:
+- JS: Lingaugem de programação de alto nível.
+- Bootstrap: 
  
 ## Conteúdo
 > A organização do projeto se divide em alguns assuntos que eu estudei/revisei alocados na pasta "Study" e o próprio projeto em si na pasta "Project".
