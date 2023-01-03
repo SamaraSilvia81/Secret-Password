@@ -52,6 +52,13 @@ class GeneratePassword {
         });
     }
 
+    btnDeleteLocalStorage(){
+        btnDeleteLocalStorage.addEventListener("click", () => {
+            localStorage.clear();
+            window.location.reload();
+        });
+    }
+
     btnCopyPassword(){
         btnCopy.addEventListener("click", (e) => {
             if(e){
@@ -162,13 +169,6 @@ class GeneratePassword {
         this.btnDeleteLocalStorage();
     }
 
-    btnDeleteLocalStorage(){
-        btnDeleteLocalStorage.addEventListener("click", () => {
-            localStorage.clear();
-            window.location.reload();
-        });
-    }
-
     updatePassword(){
 
         let valueInputDelete = inputDelete.value
@@ -221,6 +221,7 @@ class GeneratePassword {
 
 const password = new GeneratePassword()
 
+// A ordem das instâncias importam
 password.saveLocalStorage();
 password.changeInput();
 password.listPassword();
