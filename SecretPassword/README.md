@@ -12,10 +12,17 @@
 
 ## Ferramentas e Tecnologias
 
-- HTML: Linguagem de marcação usada para estruturar o site.
-- CSS: Estilização para dar cor e trazer consigo aspectos de usabilidade para o usuário.
-- JS: Lingaugem de programação de alto nível.
-- Bootstrap: 
+- HTML
+  - Semântica
+  - Sintaxe
+  - Básico
+- CSS
+- JavaScript
+  - Lógica de Programação 
+  - Vanilla JS
+  - POO
+ - Ferramentas Externas
+   - Bootstrap - Framework usado para dar um suporte na estilziação CSS.
  
 ## Conteúdo
 > A organização do projeto se divide em alguns assuntos que eu estudei/revisei alocados na pasta "Study" e o próprio projeto em si na pasta "Project".
