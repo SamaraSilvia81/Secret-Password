@@ -34,6 +34,7 @@
 - `Constructor:` Função usada na instanciação dos objetos criados a partir da classe. Logo, quando eu chamar a minha classe é o construtor que será ativado, por isso coloquei o input como elemento principal para exibir as senhas criadas, já que as funções estarão atuando em cima dele.
 - `Button:` Os métodos _btnCreatePassword_, _btnDeleteLocalStorage_ e _btnCopyPassword_ são funções específicas para capturar os botões de criar a senha, deletar a lista de senha e capturar a cópia das senhas.
 - `CreatePassword:` É a função principal, sendo usada para criar as senhas a partir dos parâmetros que são os eventos de click da checkbox. Com isso, se os valores desses "checks" forem true, então serão armazenados dentro de um array que junto com laço de repetição criará um número aleatório com esses dados ao invés de números em si, dispondo tudo dentro da variável "password" que será manipulada em outras funções.
+- `UpdatePassword:` Uma das vastas funcionalidades do projeto é a possibilidade de você selecionar quais caracteres NÃO quer na sua senha. Portanto, foi criado essa função para atualizar a senha criada na função anterior, tudo a partir de uma manipulação de dados por um "for of", no qual verificará por condicionais se existe algo dentro do "input" respectivo a tal função e que se tal se assemelhará com uma das constantes criadas para letras maiúsculas, símbolos e afins identificar e o eliminar com o método splice().
 
 
   
