@@ -10,6 +10,8 @@
 ## Links e Deploys
 - `Secret Password:` http://secretpassword.surge.sh/
 
+:warning:**Atenção** - A funcionalidade do site em "Copiar e Colar" as senhas não está funcionando no deploy, mas na máquina está pegando. Para isso, você precisa dar um clone nesse projeto indo nos "..." aqui do git e copiando o link e depois no terminal digitar `git clone` que você terá o meu projeto na sua máquina.
+
 ## Ferramentas e Tecnologias
 
 - HTML
