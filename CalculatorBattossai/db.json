@@ -1,0 +1,116 @@
+{
+  "projects": [
+    {
+      "name": "V1 - Teste 01",
+      "budget": "",
+      "currency": {
+        "id": "2",
+        "name": "USD"
+      },
+      "converted_budget": null,
+      "qtde": 0,
+      "products": [],
+      "price": "1200",
+      "quantityCategory": "2",
+      "category": {
+        "id": "1",
+        "name": "GibaByte"
+      },
+      "time": {
+        "id": "1",
+        "name": "Dia"
+      },
+      "quantityTime": "3",
+      "converted_price": 6300,
+      "budgetTotal": 6,
+      "cost": 0,
+      "services": [],
+      "id": 2
+    },
+    {
+      "name": "Projeto Battossai",
+      "budget": "",
+      "currency": {
+        "id": "2",
+        "name": "USD"
+      },
+      "converted_budget": null,
+      "qtde": 0,
+      "products": [],
+      "price": "45678",
+      "category": {
+        "id": "3",
+        "name": "Appliance"
+      },
+      "quantityCategory": "2",
+      "time": {
+        "id": "2",
+        "name": "Semana"
+      },
+      "quantityTime": "3",
+      "converted_price": 239809.5,
+      "budgetTotal": 6,
+      "cost": 0,
+      "services": [],
+      "id": 3
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "GibaByte"
+    },
+    {
+      "id": 2,
+      "name": "Host"
+    },
+    {
+      "id": 3,
+      "name": "Appliance"
+    },
+    {
+      "id": 4,
+      "name": "Caixas Postais"
+    },
+    {
+      "id": 5,
+      "name": "Instâncias"
+    },
+    {
+      "id": 6,
+      "name": "Regras"
+    },
+    {
+      "id": 7,
+      "name": "Domínios"
+    },
+    {
+      "id": 8,
+      "name": "Horas"
+    }
+  ],
+  "currencies": [
+    {
+      "id": 1,
+      "name": "BRL"
+    },
+    {
+      "id": 2,
+      "name": "USD"
+    }
+  ],
+  "time": [
+    {
+      "id": 1,
+      "name": "Dia"
+    },
+    {
+      "id": 2,
+      "name": "Semana"
+    },
+    {
+      "id": 3,
+      "name": "Mês"
+    }
+  ]
+}
