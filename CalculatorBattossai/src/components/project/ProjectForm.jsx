@@ -152,82 +152,90 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
   return (
 
     <form onSubmit={submit} className={styles.form}>
-        <Input 
-          type='text' 
-          text='Nome do Projeto' 
-          name='name'
-          placeholder='Insira o nome do projeto'
-          value={project.name ? project.name : ''}
-          handleOnChange={handleChange}
-        />
-        <Input 
-          type='number' 
-          text='Preço do Produto' 
-          name='price'
-          placeholder='Insira o preço do produto'
-          value={project.price ? project.price : ''}
-          handleOnChange={handleChange}
-        />
-        <Select 
-            name='currency' 
-            text='Selecione a moeda'
-            options={currencies}
-            handleOnChange={handleCurrency}
-            value={project.currency ? project.currency.id: ''}
-        />
-        <Input
-            type="number"
-            text="Orçamento convertido:"
-            name="converted_price"
-            placeholder="Orçamento convertido"
-            value={convertedPrice ? convertedPrice : ''}
-            readOnly
-        />
-         <Select 
-          name='category_id' 
-          text='Selecione a categoria'
-          options={categories}
-          handleOnChange={handleCategory}
-          value={project.category ? project.category.id: '0'}
-        />
-        <Input 
-          type='number' 
-          text='Quantidade do produto:' 
-          name='quantityCategory'
-          placeholder='Tempo da categoria: 2 Hosts...'
-          value={project.quantityCategory ? project.quantityCategory : ''}
-          handleOnChange={(e) => {
-            setProject({ ...project, quantityCategory: e.target.value });
-            budgetTotal(project.quantityTime, e.target.value);
-          }}
-        />
-          <Select 
-          name='time_id' 
-          text='Selecione o período'
-          options={times}
-          handleOnChange={handleTime}
-          value={project.time ? project.time.id: 'Mês'}
-        />
+        <div className={styles.form_body}>
+         <div className={`${styles.column} ${styles.column01}`}>
+            <Input 
+              type='text' 
+              text='Nome do Projeto' 
+              name='name'
+              placeholder='Insira o nome do projeto'
+              value={project.name ? project.name : ''}
+              handleOnChange={handleChange}
+            />
+            <Input 
+              type='number' 
+              text='Preço do Produto' 
+              name='price'
+              placeholder='Insira o preço do produto'
+              value={project.price ? project.price : ''}
+              handleOnChange={handleChange}
+            />
+            <Select 
+                name='currency' 
+                text='Selecione a moeda'
+                options={currencies}
+                handleOnChange={handleCurrency}
+                value={project.currency ? project.currency.id: ''}
+            />
+            <Input
+                type="number"
+                text="Orçamento convertido:"
+                name="converted_price"
+                placeholder="Orçamento convertido"
+                value={convertedPrice ? convertedPrice : ''}
+                readOnly
+            />
+            <Select 
+              name='category_id' 
+              text='Selecione a categoria'
+              options={categories}
+              handleOnChange={handleCategory}
+              value={project.category ? project.category.id: '0'}
+            />
+         </div>
+         <div className={styles.column}>
           <Input 
-          type='number' 
-          text='Quantidade de tempo:' 
-          name='quantityTime'
-          placeholder='Tempo do período: 2 semanas...'
-          value={project.quantityTime ? project.quantityTime : ''}
-          handleOnChange={(e) => {
-            setProject({ ...project, quantityTime: e.target.value });
-            budgetTotal(e.target.value, project.quantityCategory);
-          }}
-        />
-        <Input
-            type="number"
-            text="Orçamento total:"
-            name="budget"
-            placeholder="Orçamento total"
-            value={budget ? budget : ''}
-            readOnly
-        />
-        <SubmitButton text={btnText} handleSubmit={handleSubmit}/>
+              type='number' 
+              text='Quantidade do produto:' 
+              name='quantityCategory'
+              placeholder='Tempo da categoria: 2 Hosts...'
+              value={project.quantityCategory ? project.quantityCategory : ''}
+              handleOnChange={(e) => {
+                setProject({ ...project, quantityCategory: e.target.value });
+                budgetTotal(project.quantityTime, e.target.value);
+              }}
+            />
+              <Select 
+              name='time_id' 
+              text='Selecione o período'
+              options={times}
+              handleOnChange={handleTime}
+              value={project.time ? project.time.id: 'Mês'}
+            />
+              <Input 
+              type='number' 
+              text='Quantidade de tempo:' 
+              name='quantityTime'
+              placeholder='Tempo do período: 2 semanas...'
+              value={project.quantityTime ? project.quantityTime : ''}
+              handleOnChange={(e) => {
+                setProject({ ...project, quantityTime: e.target.value });
+                budgetTotal(e.target.value, project.quantityCategory);
+              }}
+            />
+            <Input
+                type="number"
+                text="Orçamento total:"
+                name="budget"
+                placeholder="Orçamento total"
+                value={budget ? budget : ''}
+                readOnly
+            />
+         </div>
+        </div>
+        <div className={styles.form_btn}>
+          <SubmitButton text={btnText} handleSubmit={handleSubmit}/>
+        </div>
     </form>
     )
 }

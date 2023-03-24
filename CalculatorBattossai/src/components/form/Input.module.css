@@ -1,20 +1,29 @@
 .form_control{
+    width: 20em;
     display: flex;
     flex-direction: column;
     margin-bottom: 1em;  /*Afasta os outros inputs*/
 }
 
-.form_control label{
-    margin-bottom: .6em; /*Afasta as labels dos inputs*/
-    font-weight: bold;
+.form_control label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000c0;
 }
 
 .form_control input{
-    padding: .7em; /*Afastamento interno do input*/
-    border-radius: 0;
-    border: none;
+    margin: 0.6em 0;
+    padding: 0.8rem 1.2rem;
     color: #00bdd6;
     background-color: #222;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0000001c;
+    font-size: 1em;
+}
+
+.form_control input:focus-visible {
+    outline: 1px solid #00bdd6;
 }
 
 .form_control input::placeholder{
