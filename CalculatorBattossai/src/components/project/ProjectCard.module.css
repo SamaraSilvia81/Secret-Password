@@ -1,6 +1,7 @@
 .project_card{
     padding: 1em; /* Espaçamento lateral interno*/
-    border: 1px solid #222; /* 7a7a7a*/
+    border: 1px solid #043a5d; /* 7a7a7a*/
+    /*background-color: #0b182f;*/
     border-radius: 5px;
     width: 24%; /* 24% do total disponível - Ele irá se ajustar de acordo com a quantidade de cards*/
     margin: 0.5%; /*Mantém cada card separado de si*/
@@ -8,7 +9,7 @@
 
 .project_card h4{
     color: #fff;
-    background-color: #0093a7;
+    background-color: #0093a7; /*0b182f - 0093a7*/
     padding: 0.4em;
     margin-bottom: 1.3em;
     font-size: 1.3em;
@@ -16,7 +17,7 @@
 }
 
 .project_card p{
-    color: #222;
+    color: #222; /*020710*/
     margin-bottom: 1em;
 }
 
@@ -98,13 +99,13 @@
 .project_card_actions button{
     text-decoration: none;
     border: none;
-    background-color: #222;
+    background-color: #020710;
     color: #fff;
     font-size: .9em;
     padding: .6em 1em;
     margin-right: 1em;
     cursor: pointer;
-    border: 1px solid #222;
+    border: 1px solid #020710;
     display: flex;
     align-items: center;
     justify-content: center;

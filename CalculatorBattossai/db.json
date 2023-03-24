@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "name": "V1 - Teste 01",
+      "name": "Teste 01 - Update",
       "budget": "",
       "currency": {
         "id": "2",
@@ -11,24 +11,24 @@
       "qtde": 0,
       "products": [],
       "price": "1200",
-      "quantityCategory": "2",
       "category": {
-        "id": "1",
-        "name": "GibaByte"
+        "id": "2",
+        "name": "Host"
       },
+      "quantityCategory": "2",
       "time": {
-        "id": "1",
-        "name": "Dia"
+        "id": "2",
+        "name": "Semana"
       },
-      "quantityTime": "3",
-      "converted_price": 6300,
-      "budgetTotal": 6,
+      "quantityTime": "5",
+      "converted_price": 1200,
+      "budgetTotal": 10,
       "cost": 0,
       "services": [],
-      "id": 2
+      "id": 1
     },
     {
-      "name": "Projeto Battossai",
+      "name": "Teste 02 - Batto",
       "budget": "",
       "currency": {
         "id": "2",
@@ -37,22 +37,22 @@
       "converted_budget": null,
       "qtde": 0,
       "products": [],
-      "price": "45678",
+      "price": "1200",
       "category": {
-        "id": "3",
-        "name": "Appliance"
+        "id": "6",
+        "name": "Regras"
       },
-      "quantityCategory": "2",
+      "quantityCategory": "3",
       "time": {
         "id": "2",
         "name": "Semana"
       },
-      "quantityTime": "3",
-      "converted_price": 239809.5,
+      "quantityTime": "2",
+      "converted_price": 6300,
       "budgetTotal": 6,
       "cost": 0,
       "services": [],
-      "id": 3
+      "id": 2
     }
   ],
   "categories": [

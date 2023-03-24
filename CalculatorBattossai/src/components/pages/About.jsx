@@ -1,5 +1,7 @@
 import styles from './About.module.css'
+import { LinkButton } from '../layout/LinkButton'
 import bidweb from '../../img/battossai.png'
+
 import {motion} from 'framer-motion'
 
 export function About(){
@@ -10,28 +12,20 @@ export function About(){
             animate={{width:'100%'}}
             exit={{x:window.innerWidth,transition:{duration:0.1}}}
         >
-          <div>
-            <div className={styles.img}>
-              <img
-                src={bidweb}
-                alt=''
-              />
-              <div className={styles.about_div}>
-                <div>
-                  <h2>
-                    Calculadora Battossai
-                  </h2>
-                  <p>
-                      BidWeb Security Id
-                  </p>
-                  <hr/>
-                  <p className={styles.text}>
-                    É um sistema de cadastro de produtos refernetes ao battossai.
-                  </p>
+        <div className={styles.about_body}>
+            <img src={bidweb} alt="" />
+            <div className={styles.border_about}>
+                <div className={styles.text_container}>
+                    <span>Battossai</span>
+                    <h1>Calculadora</h1>
+                    <p>
+                        É um sistema de cadastro de produtos refernetes ao battossai.
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum possimus minus eius id tempora saepe quaerat, ratione illum nostrum suscipit soluta vitae! Similique assumenda aspernatur eius perspiciatis cumque necessitatibus totam!
+                    </p>
+                    <LinkButton to='/newproject' text='Cadastrar Produto'/>
                 </div>
-              </div>
             </div>
-          </div>
+        </div>
       </motion.section>
     );
 }

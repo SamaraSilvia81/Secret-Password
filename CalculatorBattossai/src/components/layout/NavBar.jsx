@@ -11,7 +11,6 @@ export function NavBar(){
               <li className={styles.item}><Link to='/'>Home</Link></li>
               <li className={styles.item}><Link to='/projects'>Produtos</Link></li>
               <li className={styles.item}><Link to='/about'>Sobre</Link></li>
-              <li className={styles.item}><Link to='/contact'>Contato</Link></li>
             </ul>
           </Container>
         </nav>
