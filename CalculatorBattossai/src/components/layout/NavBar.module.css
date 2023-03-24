@@ -2,12 +2,25 @@
     display: flex;
     justify-content: space-between;
     background-color: #222; /*222*/
-    padding: 1em;
+    padding: 1.5em;
+    transition: all .45s ease;
 }
 
-.navBar img{
-    width: 17%;
+.title{
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff;
+    text-decoration: none;
 }
+
+.navBar span{
+    color: #00bdd6;
+}
+
+/*.navBar img{
+    width: 17%;
+}*/
 
 .list{
     display: flex;
@@ -26,8 +39,10 @@
 .item a{
     color: #fff;
     text-decoration: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .item a:hover{
     color: #00bdd6; /*#FFBB33*/
+    transform: scale(0.95);
 }

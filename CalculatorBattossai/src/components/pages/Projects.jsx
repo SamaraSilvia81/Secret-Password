@@ -8,6 +8,7 @@ import {LinkButton} from '../layout/LinkButton';
 import {ProjectCard} from '../project/ProjectCard';
 
 import styles from './Projects.module.css';
+import {motion} from 'framer-motion'
 
 export function Projects(){
 
@@ -59,7 +60,12 @@ export function Projects(){
     }
 
     return (
-       <div className={styles.project_container}>
+       <motion.div 
+            className={styles.project_container}
+            initial={{width:0}}
+            animate={{width:'100%'}}
+            exit={{x:window.innerWidth,transition:{duration:0.1}}}
+       >
         <div className={styles.title_container}>
             <h1>Meus Produtos</h1>
             <LinkButton to='/newproject' text='Novo Produto'/>
@@ -90,6 +96,6 @@ export function Projects(){
             )
             }
        </Container>
-       </div>
+       </motion.div>
     )
 }
