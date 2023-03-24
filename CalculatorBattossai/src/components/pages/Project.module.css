@@ -25,6 +25,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    margin: 0 120px;
 }
 
 .btn{
@@ -35,7 +36,8 @@
     transition: 0.5s;
     cursor: pointer;
     max-height: 40px;
-    border: nnone;
+    border: none;
+    margin-left: 700px;
 }
 
 .btn:hover{
