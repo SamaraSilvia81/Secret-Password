@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect} from 'react'
 
 import {Input} from '../form/Input'
 import {Select} from '../form/Select'
@@ -7,7 +7,13 @@ import {Message} from '../layout/Message'
 
 import styles from './ProjectForm.module.css'
 
+import {DollarStore} from "../zustand/DollarStore";
+
 export function ProjectForm({btnText, handleSubmit, projectData}){
+
+  //const dollar = DollarStore((state) => state.dollar);
+  //const { dollar } = DollarStore();
+  const dollar = DollarStore((state) => state.dollar)
     
   // Select das Categorias (banco de dados)
   const [categories, setCategories] = useState([])
@@ -20,6 +26,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
 
   // Estado que representa as mensagens
   const [message, setMessage] = useState()
+
   // Estado que representa o tipo da mensagem
   const [typeMessage, setTypeMessage] = useState()
 
@@ -32,6 +39,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
       id: '',
       name: '',
     },
+    dolar: null,
     converted_budget: null,
     products: [], // novo campo para armazenar os produtos
   });
@@ -99,15 +107,19 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
   // Método para enviar formulário
   const submit = (e) => {
     e.preventDefault();
-    if (!project.price || !project.quantityCategory || !project.quantityTime) {
+
+    if (!project.name || !project.price || !project.quantityCategory || !project.quantityTime || !project.time || !project.currency || !project.category) {
       setMessage("Por favor, preencha todos os campos.");
       setTypeMessage("error");
       return;
     }
-      handleSubmit({ 
-        ...project, 
-        converted_price: convertedPrice,
-        budgetTotal: budget});
+
+    handleSubmit({ 
+      ...project, 
+      converted_price: convertedPrice,
+      budgetTotal: budget
+    });
+
     console.log('Enviando os dados...');
   };
 
@@ -139,8 +151,8 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
     }
 
     const convertCurrency = (value, currency) => {
-      const conversionRate = currency === '1' ? 1.0 : 5.23;
-      return parseFloat(value) * conversionRate;
+      const conversionRate = currency === '1' ? 1.0 : dollar;
+      return (parseFloat(value) * conversionRate).toFixed(2);
     };
 
     const handleCurrency = (e) => {
@@ -155,7 +167,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
         },
       });
   
-      const newConvertedPrice = convertCurrency(project.price, newCurrency);
+      const newConvertedPrice = convertCurrency(project.price, newCurrency, project.dolar);
       setConvertedPrice(newConvertedPrice);
     };
 
@@ -168,10 +180,18 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
       });
     };
 
+    /*const handleDolarChange = (e) => {
+      const dolarValue = e.target.value;
+      setProject({
+        ...project,
+        dolar: dolarValue
+      });
+    };*/
+
   return (
 
     <form onSubmit={submit} className={styles.form}>
-              {message && <Message type={typeMessage} msg={message}/>}
+        {message && <Message type={typeMessage} msg={message}/>}
         <div className={styles.form_body}>
          <div className={`${styles.column} ${styles.column01}`}>
             <Input 
@@ -190,6 +210,14 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
               value={project.price ? project.price : ''}
               handleOnChange={handlePriceChange}
             />
+             {/*<Input 
+              type="number"
+              text='Valor do dólar' 
+              name="dolar" 
+              placeholder='Insira o valor do dólar'
+              value={project.dolar ? project.dolar : ''} 
+              handleOnChange={handleDolarChange}
+  />*/}
             <Select 
                 name='currency' 
                 text='Selecione a moeda'
@@ -203,6 +231,9 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
                 name="converted_price"
                 placeholder="Orçamento convertido"
                 value={convertedPrice ? convertedPrice : ''}
+                handleOnChange={(e) => {
+                  budgetTotal(convertedPrice, e.target.value);
+                }}
                 disabled
             />
             <Select 

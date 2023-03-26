@@ -1,446 +1,35 @@
 {
   "projects": [
     {
-      "name": "Teste 01 - Update",
+      "name": "Maria DB",
       "budget": "",
       "currency": {
-        "id": "2",
-        "name": "USD"
+        "id": "1",
+        "name": "BRL"
       },
       "converted_budget": null,
-      "qtde": 0,
       "products": [],
       "price": "1200",
       "category": {
-        "id": "2",
-        "name": "Host"
+        "id": "3",
+        "name": "Appliance"
       },
-      "quantityCategory": "2",
+      "quantityCategory": "20",
       "time": {
-        "id": "2",
-        "name": "Semana"
+        "id": "3",
+        "name": "Mês"
       },
-      "quantityTime": "5",
+      "quantityTime": "12",
       "converted_price": 1200,
-      "budgetTotal": 10,
-      "cost": 0,
-      "services": [],
+      "budgetTotal": 288000,
       "id": 1
     },
     {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "",
-        "name": ""
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "category": {
-        "id": "Instâncias",
-        "name": "Instâncias"
-      },
-      "time": {
-        "id": "Dia",
-        "name": "Dia"
-      },
-      "converted_price": null,
-      "cost": 0,
-      "services": [],
-      "id": 2
-    },
-    {
-      "name": "Jóse Alves",
-      "budget": "",
-      "currency": {
-        "id": "USD",
-        "name": "USD"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "category": {
-        "id": "Host",
-        "name": "Host"
-      },
-      "quantityCategory": "2",
-      "time": {
-        "id": "Dia",
-        "name": "Dia"
-      },
-      "quantityTime": "4",
-      "converted_price": 6276.000000000001,
-      "budgetTotal": 8,
-      "cost": 0,
-      "services": [],
-      "id": 3
-    },
-    {
-      "name": "Daniel Alves",
-      "budget": "",
-      "currency": {
-        "id": "BRL",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "category": {
-        "id": "GibaByte",
-        "name": "GibaByte"
-      },
-      "quantityCategory": "4",
-      "quantityTime": "8",
-      "converted_price": 1200,
-      "budgetTotal": 32,
-      "cost": 0,
-      "services": [],
-      "id": 4
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "BRL",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "converted_price": 1200,
-      "cost": 0,
-      "services": [],
-      "id": 5
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "USD",
-        "name": "USD"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "converted_price": 6276.000000000001,
-      "cost": 0,
-      "services": [],
-      "id": 6
-    },
-    {
-      "name": "",
+      "name": "Insomnia",
       "budget": "",
       "currency": {
         "id": "2",
         "name": "USD"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "category": {
-        "id": "7",
-        "name": "Domínios"
-      },
-      "converted_price": 6276.000000000001,
-      "cost": 0,
-      "services": [],
-      "id": 7
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "2",
-        "name": "USD"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1199",
-      "converted_price": 6270.77,
-      "cost": 0,
-      "services": [],
-      "id": 8
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "quantityCategory": "3",
-      "quantityTime": "5",
-      "converted_price": 1200,
-      "budgetTotal": null,
-      "cost": 0,
-      "services": [],
-      "id": 9
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "quantityCategory": "2",
-      "quantityTime": "2",
-      "converted_price": 1200,
-      "budgetTotal": 0,
-      "cost": 0,
-      "services": [],
-      "id": 10
-    },
-    {
-      "name": "Budget Total",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "quantityCategory": "2",
-      "quantityTime": "2",
-      "category": {
-        "id": "2",
-        "name": "Host"
-      },
-      "time": {
-        "id": "1",
-        "name": "Dia"
-      },
-      "converted_price": 6276.000000000001,
-      "budgetTotal": 4800,
-      "cost": 0,
-      "services": [],
-      "id": 11
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "quantityCategory": "2",
-      "quantityTime": "2",
-      "converted_price": 1200,
-      "budgetTotal": 4800,
-      "cost": 0,
-      "services": [],
-      "id": 12
-    },
-    {
-      "name": "Budget Total 2.5",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "category": {
-        "id": "2",
-        "name": "Host"
-      },
-      "quantityCategory": "2",
-      "quantityTime": "4",
-      "time": {
-        "id": "2",
-        "name": "Semana"
-      },
-      "converted_price": 1200,
-      "budgetTotal": 9600,
-      "cost": 0,
-      "services": [],
-      "id": 13
-    },
-    {
-      "name": "Budget Total 3",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "category": {
-        "id": "1",
-        "name": "GibaByte"
-      },
-      "quantityCategory": "5",
-      "quantityTime": "5",
-      "time": {
-        "id": "1",
-        "name": "Dia"
-      },
-      "converted_price": 1200,
-      "budgetTotal": 156900.00000000003,
-      "cost": 0,
-      "services": [],
-      "id": 14
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "price": "1200",
-      "converted_price": 1200,
-      "cost": 0,
-      "services": [],
-      "id": 15
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "",
-        "name": ""
-      },
-      "converted_budget": null,
-      "qtde": 0,
-      "products": [],
-      "converted_price": null,
-      "cost": 0,
-      "services": [],
-      "id": 16
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "",
-        "name": ""
-      },
-      "converted_budget": null,
-      "products": [],
-      "converted_price": null,
-      "cost": 0,
-      "services": [],
-      "id": 17
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "",
-        "name": ""
-      },
-      "converted_budget": null,
-      "products": [],
-      "converted_price": null,
-      "id": 18
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "",
-        "name": ""
-      },
-      "converted_budget": null,
-      "products": [],
-      "converted_price": null,
-      "id": 19
-    },
-    {
-      "name": "",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "products": [],
-      "price": "1200",
-      "category": {
-        "id": "2",
-        "name": "Host"
-      },
-      "quantityCategory": "2",
-      "quantityTime": "2",
-      "converted_price": 1200,
-      "budgetTotal": 4800,
-      "id": 20
-    },
-    {
-      "name": "Teste de Message",
-      "budget": "",
-      "currency": {
-        "id": "",
-        "name": ""
-      },
-      "converted_budget": null,
-      "products": [],
-      "price": "1200",
-      "category": {
-        "id": "2",
-        "name": "Host"
-      },
-      "quantityCategory": "2",
-      "quantityTime": "2",
-      "converted_price": null,
-      "budgetTotal": null,
-      "id": 21
-    },
-    {
-      "name": "Teste de Message 02",
-      "budget": "",
-      "currency": {
-        "id": "",
-        "name": ""
-      },
-      "converted_budget": null,
-      "products": [],
-      "price": "1200",
-      "quantityTime": "2",
-      "quantityCategory": "2",
-      "category": {
-        "id": "2",
-        "name": "Host"
-      },
-      "converted_price": null,
-      "budgetTotal": null,
-      "id": 22
-    },
-    {
-      "name": "Teste de Message 03",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
       },
       "converted_budget": null,
       "products": [],
@@ -449,15 +38,239 @@
         "id": "1",
         "name": "GibaByte"
       },
-      "quantityCategory": "5",
-      "quantityTime": "2",
+      "quantityCategory": "4",
+      "quantityTime": "5",
+      "time": {
+        "id": "2",
+        "name": "Semana"
+      },
+      "converted_price": "6000.00",
+      "budgetTotal": 120000,
+      "id": 2
+    },
+    {
+      "name": "VS Code",
+      "budget": "",
+      "currency": {
+        "id": "1",
+        "name": "BRL"
+      },
+      "converted_budget": null,
+      "products": [],
+      "price": "3456",
+      "category": {
+        "id": "5",
+        "name": "Instâncias"
+      },
+      "quantityCategory": "7",
+      "quantityTime": "9",
       "time": {
         "id": "1",
         "name": "Dia"
       },
-      "converted_price": 3000,
-      "budgetTotal": 30000,
-      "id": 23
+      "converted_price": 3456,
+      "budgetTotal": 217728,
+      "id": 3
+    },
+    {
+      "name": "Maria DB",
+      "budget": "",
+      "currency": {
+        "id": "1",
+        "name": "BRL"
+      },
+      "dolar": "2",
+      "converted_budget": null,
+      "products": [],
+      "price": "12",
+      "category": {
+        "id": "3",
+        "name": "Appliance"
+      },
+      "quantityCategory": "2",
+      "quantityTime": "2",
+      "time": {
+        "id": "2",
+        "name": "Semana"
+      },
+      "converted_price": 12,
+      "budgetTotal": 48,
+      "id": 5
+    },
+    {
+      "name": "Maria DB 3",
+      "budget": "",
+      "currency": {
+        "id": "2",
+        "name": "USD"
+      },
+      "dolar": null,
+      "converted_budget": null,
+      "products": [],
+      "price": "2",
+      "quantityCategory": "2",
+      "quantityTime": "2",
+      "category": {
+        "id": "6",
+        "name": "Regras"
+      },
+      "time": {
+        "id": "2",
+        "name": "Semana"
+      },
+      "converted_price": "4.00",
+      "budgetTotal": 16,
+      "id": 6
+    },
+    {
+      "name": "Maria DB 2",
+      "budget": "",
+      "currency": {
+        "id": "2",
+        "name": "USD"
+      },
+      "dolar": null,
+      "converted_budget": null,
+      "products": [],
+      "price": "12",
+      "quantityCategory": "2",
+      "quantityTime": "2",
+      "category": {
+        "id": "5",
+        "name": "Instâncias"
+      },
+      "time": {
+        "id": "1",
+        "name": "Dia"
+      },
+      "converted_price": "24.00",
+      "budgetTotal": 96,
+      "id": 7
+    },
+    {
+      "name": "Teste Final de Hoje ",
+      "budget": "",
+      "currency": {
+        "id": "2",
+        "name": "USD"
+      },
+      "dolar": null,
+      "converted_budget": null,
+      "products": [],
+      "price": "5",
+      "category": {
+        "id": "3",
+        "name": "Appliance"
+      },
+      "quantityCategory": "2",
+      "time": {
+        "id": "1",
+        "name": "Dia"
+      },
+      "quantityTime": "2",
+      "converted_price": "10.00",
+      "budgetTotal": 40,
+      "id": 8
+    },
+    {
+      "name": "Teste Final de Hoje 2",
+      "budget": "",
+      "currency": {
+        "id": "1",
+        "name": "BRL"
+      },
+      "dolar": null,
+      "converted_budget": null,
+      "products": [],
+      "price": "2",
+      "quantityCategory": "2",
+      "quantityTime": "2",
+      "time": {
+        "id": "2",
+        "name": "Semana"
+      },
+      "category": {
+        "id": "2",
+        "name": "Host"
+      },
+      "converted_price": "4.00",
+      "budgetTotal": 8,
+      "id": 9
+    },
+    {
+      "name": "Teste Final de Hoje 3",
+      "budget": "",
+      "currency": {
+        "id": "2",
+        "name": "USD"
+      },
+      "dolar": null,
+      "converted_budget": null,
+      "products": [],
+      "price": "12",
+      "category": {
+        "id": "2",
+        "name": "Host"
+      },
+      "quantityCategory": "2",
+      "time": {
+        "id": "1",
+        "name": "Dia"
+      },
+      "quantityTime": "2",
+      "converted_price": "24.00",
+      "budgetTotal": 96,
+      "id": 10
+    },
+    {
+      "name": "Teste Final de Hoje 4",
+      "budget": "",
+      "currency": {
+        "id": "1",
+        "name": "BRL"
+      },
+      "dolar": null,
+      "converted_budget": null,
+      "products": [],
+      "price": "5",
+      "category": {
+        "id": "1",
+        "name": "GibaByte"
+      },
+      "quantityCategory": "1",
+      "time": {
+        "id": "1",
+        "name": "Dia"
+      },
+      "quantityTime": "2",
+      "converted_price": "5.00",
+      "budgetTotal": 10,
+      "id": 11
+    },
+    {
+      "name": "Teste Final de Hoje 5",
+      "budget": "",
+      "currency": {
+        "id": "1",
+        "name": "BRL"
+      },
+      "dolar": null,
+      "converted_budget": null,
+      "products": [],
+      "price": "5",
+      "category": {
+        "id": "5",
+        "name": "Instâncias"
+      },
+      "quantityCategory": "2",
+      "time": {
+        "id": "1",
+        "name": "Dia"
+      },
+      "quantityTime": "2",
+      "converted_price": "5.00",
+      "budgetTotal": 20,
+      "id": 12
     }
   ],
   "categories": [
@@ -501,7 +314,8 @@
     },
     {
       "id": 2,
-      "name": "USD"
+      "name": "USD",
+      "value": 2
     }
   ],
   "time": [
