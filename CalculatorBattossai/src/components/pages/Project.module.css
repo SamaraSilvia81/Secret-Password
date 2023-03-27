@@ -1,5 +1,6 @@
 .project_details{
     padding: 2em;
+    width: 99%;
 }
 
 .project_details h1,
@@ -12,6 +13,9 @@
     background-color: #020710;
     color: #00bdd6;
     padding: .4em;
+    margin-right: 1em;    
+    max-width: 70%;
+    overflow-wrap: break-word;
 }
 
 .project_details span {
@@ -25,19 +29,20 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 120px;
+    margin: 0 110px;
 }
 
 .btn{
     background-color: #020710;
     color:#fff;
     padding: 0.5em 1em;
+    margin-left: 6em;
     text-decoration: none;
     transition: 0.5s;
     cursor: pointer;
     max-height: 40px;
     border: none;
-    margin-left: 700px;
+    justify-content: flex-end;
 }
 
 .btn:hover{

@@ -12,7 +12,6 @@ import styles from './Projects.module.css';
 import {motion} from 'framer-motion'
 
 import {Input} from '../form/Input'
-import {SubmitButton} from '../form/SubmitButton'
 import {DollarStore} from "../zustand/DollarStore";
 
 export function Projects(){
@@ -70,6 +69,7 @@ export function Projects(){
             .catch((e) => console.log(e))  // assim conseguiremos debuggar depois
         }, 400)
     },[dollar])  // estaremos controlando um array vazio
+    
 
     // Atualizar todos os campos com o novo dollar
     useEffect(() => {
@@ -124,9 +124,9 @@ export function Projects(){
             setProjects(
                 projects.map((project) => ({
                     ...project,
-                    converted_price: (project.price * newValue).toFixed(2),
-                    budgetTotal: (project.budget * newValue).toFixed(2),
-                   // quantityCategory: project.quantityCategory,
+                    //converted_price: (project.price * newValue).toFixed(2),
+                    //budgetTotal: (project.budget * newValue).toFixed(2),
+                    // quantityCategory: project.quantityCategory,
                     //quantityTime: project.quantityTime
                 }))
             );
@@ -180,10 +180,6 @@ export function Projects(){
                 placeholder="Digite o valor atual do dólar"
                 value={dollar}
                 handleOnChange={handleDollarChange}
-            />
-            <SubmitButton
-                text='Atualizar Dólar'
-                onClick={handleDollarChange}
             />
         </div>
        </motion.div>

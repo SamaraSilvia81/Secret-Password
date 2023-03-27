@@ -11,8 +11,6 @@ import {DollarStore} from "../zustand/DollarStore";
 
 export function ProjectForm({btnText, handleSubmit, projectData}){
 
-  //const dollar = DollarStore((state) => state.dollar);
-  //const { dollar } = DollarStore();
   const dollar = DollarStore((state) => state.dollar)
     
   // Select das Categorias (banco de dados)
@@ -21,6 +19,12 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
   // Select das Moedas (banco de dados)
   const [currencies, setCurrencies] = useState([])
   
+  // Estado da moeda
+  const [currency, setCurrency] = useState("BRL");
+
+  // Estado do preço convertido
+  const [convertedPrice, setConvertedPrice] = useState(projectData ? projectData.converted_price : null);
+
   // Select do Tempo (banco de dados)
   const [times, setTimes] = useState([])
 
@@ -39,16 +43,11 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
       id: '',
       name: '',
     },
+    budgetTotal: null,
     dolar: null,
-    converted_budget: null,
+    converted_price: null,
     products: [], // novo campo para armazenar os produtos
   });
-
-  // Estado da moeda
-  const [currency, setCurrency] = useState("BRL");
-
-  // Estado do valor convertido
-  const [convertedPrice, setConvertedPrice] = useState(projectData ? projectData.converted_price : null);
 
   // Estado do orçamento total
   const [budget, setBudget] = useState(convertedPrice || project.quantityCategory || project.quantityTime);
@@ -98,11 +97,23 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
       .catch((e) => console.log(e))
     }, [])
 
-  const budgetTotal = (quantityTime, quantityCategory) => {
-    let total = quantityTime * quantityCategory * convertedPrice;
+  // Método para calcular o valor do orçamento total
+  const budgetTotal = () => {
+    let total = project.quantityTime * project.quantityCategory * convertedPrice;
     setBudget(total);
+    console.log("Valor Convertido: ",convertedPrice)
     console.log("total:", total);
   };
+
+  useEffect(() => {
+    setBudget(project.quantityCategory * project.quantityTime * convertedPrice);
+    console.log("total:", budget);
+  }, [convertedPrice]);
+
+  // Chamada feito para atualizar o budget quando esses valores mudarem
+  useEffect(() => {
+      budgetTotal();
+  }, [project.quantityCategory, project.quantityTime, convertedPrice]);
 
   // Método para enviar formulário
   const submit = (e) => {
@@ -141,7 +152,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
       })
     }
   
-    // Método para captar os dados dos inputs de entrada - nome e orçamento
+    // Método para captar os dados dos inputs de entrada - nome e preço
     const handleChange = (e) => {
       const { name, value } = e.target;
       setProject({ ...project, [name]: value });
@@ -150,11 +161,13 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
       setConvertedPrice(newConvertedBudget);
     }
 
+    // Método para converter com base na escolha da moeda
     const convertCurrency = (value, currency) => {
       const conversionRate = currency === '1' ? 1.0 : dollar;
       return (parseFloat(value) * conversionRate).toFixed(2);
     };
 
+    // Método para captar a escolha da moeda
     const handleCurrency = (e) => {
       const newCurrency = e.target.value;
       setCurrency(newCurrency);
@@ -180,14 +193,6 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
       });
     };
 
-    /*const handleDolarChange = (e) => {
-      const dolarValue = e.target.value;
-      setProject({
-        ...project,
-        dolar: dolarValue
-      });
-    };*/
-
   return (
 
     <form onSubmit={submit} className={styles.form}>
@@ -210,14 +215,6 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
               value={project.price ? project.price : ''}
               handleOnChange={handlePriceChange}
             />
-             {/*<Input 
-              type="number"
-              text='Valor do dólar' 
-              name="dolar" 
-              placeholder='Insira o valor do dólar'
-              value={project.dolar ? project.dolar : ''} 
-              handleOnChange={handleDolarChange}
-  />*/}
             <Select 
                 name='currency' 
                 text='Selecione a moeda'
@@ -227,13 +224,10 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
             />
             <Input
                 type="number"
-                text="Orçamento convertido:"
+                text="Preço convertido:"
                 name="converted_price"
-                placeholder="Orçamento convertido"
+                placeholder="Preço convertido"
                 value={convertedPrice ? convertedPrice : ''}
-                handleOnChange={(e) => {
-                  budgetTotal(convertedPrice, e.target.value);
-                }}
                 disabled
             />
             <Select 
@@ -253,7 +247,6 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
               value={project.quantityCategory ? project.quantityCategory : ''}
               handleOnChange={(e) => {
                 setProject({ ...project, quantityCategory: e.target.value });
-                budgetTotal(project.quantityTime, e.target.value);
               }}
             />
               <Select 
@@ -271,7 +264,6 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
               value={project.quantityTime ? project.quantityTime : ''}
               handleOnChange={(e) => {
                 setProject({ ...project, quantityTime: e.target.value });
-                budgetTotal(e.target.value, project.quantityCategory);
               }}
             />
             <Input
