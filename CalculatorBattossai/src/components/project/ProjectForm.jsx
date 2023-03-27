@@ -156,9 +156,9 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
          <div className={`${styles.column} ${styles.column01}`}>
             <Input 
               type='text' 
-              text='Nome do Projeto' 
+              text='Nome do Fabricante' 
               name='name'
-              placeholder='Insira o nome do projeto'
+              placeholder='Insira o nome do fabricante'
               value={project.name ? project.name : ''}
               handleOnChange={handleChange}
             />

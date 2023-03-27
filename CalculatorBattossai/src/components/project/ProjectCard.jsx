@@ -1,6 +1,7 @@
 import {BsPencil, BsFillTrashFill} from 'react-icons/bs'
 import styles from './ProjectCard.module.css';
 
+import {Input} from '../form/Input'
 import {Link} from 'react-router-dom'
 
 export function ProjectCard({id,currency,name,budget,price,convertedPrice, category,quantityCategory,quantityTime,time, handleRemove}){
