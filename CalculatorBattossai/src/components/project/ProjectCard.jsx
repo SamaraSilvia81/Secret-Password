@@ -23,7 +23,7 @@ export function ProjectCard({id,currency,name,budget,price,convertedPrice, categ
             <span className={`${styles[currency?.toLowerCase()]}`}>Moeda:</span> {currency}
         </p>
         <p>
-            <span>Orçamento Total:</span> {budget}
+            <span>Orçamento Total:</span>  {currencySymbol} {budget}
         </p>
         <p className={styles.time_text}>
             <span className={`${styles[time?.toLowerCase()]}`}></span> {time} - {quantityTime}

@@ -8,3 +8,7 @@
     justify-content: space-between; /* espaçamento lateral igual entre os elementos*/
     margin-bottom: 2em;
 }
+
+.dollar{
+    margin-top: 3em;
+}

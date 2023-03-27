@@ -5,12 +5,29 @@ import {Message} from '../layout/Message';
 import {Container} from '../layout/Container';
 import {Loading} from '../layout/Loading';
 import {LinkButton} from '../layout/LinkButton';
+
 import {ProjectCard} from '../project/ProjectCard';
 
 import styles from './Projects.module.css';
 import {motion} from 'framer-motion'
 
+import {Input} from '../form/Input'
+import {SubmitButton} from '../form/SubmitButton'
+import {DollarStore} from "../zustand/DollarStore";
+
 export function Projects(){
+
+    // Estado responsável pelo get do DollarStore
+    const dollar = DollarStore(state => state.dollar);
+    // Estado responsável pelo set do DollarStore
+    const setDollar = DollarStore(state => state.setDollar);
+
+   useEffect(() => {
+        fetch("http://localhost:5000/currencies/2")
+          .then(res => res.json())
+          .then(data => setDollar(data.value))
+          .catch(e => console.log(e));
+      }, [dollar]);
 
     const [projects, setProjects] = useState([]); // estado para salvar os projetos
     const [removeLoading, setRemoveLoading] = useState(false)
@@ -36,13 +53,40 @@ export function Projects(){
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
-                setProjects(data) 
+                setProjects(
+                    data.map((project) => {
+                        let newPrice = project.price;
+                        if (project.currency.name === "USD") {
+                            newPrice = (project.price * dollar).toFixed(2);
+                        }
+                        return {
+                            ...project,
+                            converted_price: newPrice
+                        }
+                    })
+                );
                 setRemoveLoading(true) // quando os projetos forem carregados, então ele se remove
             })
             .catch((e) => console.log(e))  // assim conseguiremos debuggar depois
         }, 400)
-    },[])  // estaremos controlando um array vazio
+    },[dollar])  // estaremos controlando um array vazio
 
+    // Atualizar todos os campos com o novo dollar
+    useEffect(() => {
+        setProjects(prevProjects => {
+            return prevProjects.map(project => {
+                let convertedPrice = project.price;
+                if (project.currency.name === "USD") {
+                    convertedPrice = project.price * dollar;
+                }
+                return {
+                    ...project,
+                    converted_price: convertedPrice
+                };
+            });
+        });
+    }, [dollar]);
+      
     // Método para remover o projeto  + fecth
     const removeProject = (id) => {
         fetch(`http://localhost:5000/projects/${id}`,{
@@ -52,12 +96,43 @@ export function Projects(){
             },
         })
         .then((res) => res.json())
-        .then(data => {
+        .then(() => {
             setProjects(projects.filter((project) => project.id !== id))
             setProjectMessage("Projeto removido com sucesso!")
         })
         .catch((e) => console.log(e))
     }
+
+    const handleDollarChange = (e) => {
+
+        const newValue = parseFloat(e.target.value);
+        setDollar(newValue);
+
+        fetch("http://localhost:5000/currencies/2", {
+            method: "PATCH",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                value: parseFloat(newValue)
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            // atualizar o valor da moeda em todos os projetos
+            setProjects(
+                projects.map((project) => ({
+                    ...project,
+                    converted_price: (project.price * newValue).toFixed(2),
+                    budgetTotal: (project.budget * newValue).toFixed(2),
+                   // quantityCategory: project.quantityCategory,
+                    //quantityTime: project.quantityTime
+                }))
+            );
+        })
+        .catch(e => console.log(e));
+    };
 
     return (
        <motion.div 
@@ -78,6 +153,7 @@ export function Projects(){
                 key={project.id} 
                 id={project.id}
                 name={project.name}
+                dolar={project.dolar}
                 budget={project.budgetTotal}
                 time={project?.time?.name}
                 quantityTime={project.quantityTime}
@@ -96,6 +172,20 @@ export function Projects(){
             )
             }
        </Container>
+       <div className={styles.dollar}>
+            <Input
+                type="number"
+                name="dollar"
+                text='Valor do dólar:'
+                placeholder="Digite o valor atual do dólar"
+                value={dollar}
+                handleOnChange={handleDollarChange}
+            />
+            <SubmitButton
+                text='Atualizar Dólar'
+                onClick={handleDollarChange}
+            />
+        </div>
        </motion.div>
     )
 }

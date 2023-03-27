@@ -9,13 +9,13 @@
 
 .form_body {
     display: flex;
-    padding-right: 10em;
+    padding-right: 8em; /*10em*/
     justify-content: center; /* centraliza as colunas na horizontal */
     align-items: center; /* centraliza as colunas na vertical */
 }
 
 .column01{
-    padding: 0 10em;
+    padding: 0 7em; /*10em*/
 }
 
 .column {

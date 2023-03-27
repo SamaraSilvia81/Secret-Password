@@ -52,13 +52,6 @@ export function Project(){
         // Só assim ele envia esses dados para rota
         console.log(project)
 
-        // budget validation
-        if(!project.budget < project.cost){
-            setMessage("O orçamento não pode ser menor que o custo do projeto!!")
-            setTypeMessage("error")
-            return false // para tudo e não atualiza o projeto
-        }
-
         fetch(`http://localhost:5000/projects/${project.id}`,{
             method: 'PATCH', // Alterar só o que foi mudado
             headers:{
@@ -77,7 +70,6 @@ export function Project(){
     }
 
     const currencySymbol = project.currency === 'BRL' ? 'R$' : '$';
-    //{project.currency.name}
 
     return(
         <>
@@ -96,9 +88,6 @@ export function Project(){
                             <div className={styles.project_info}>
                                 <p>
                                     <span>Categoria:</span> {project.category.name}
-                                </p>
-                                <p>
-                                    <span>Cost:</span> {currencySymbol} {project.cost}
                                 </p>
                                 <p>
                                     <span>Orçamento Total:</span> {currencySymbol} {project.budgetTotal}
