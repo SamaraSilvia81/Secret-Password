@@ -80,7 +80,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
         setCurrencies(data)
       })
       .catch((e) => console.log(e))
-    }, [])
+    }, []) 
 
   // Requisição de API para buscar o período
   useEffect(() => {

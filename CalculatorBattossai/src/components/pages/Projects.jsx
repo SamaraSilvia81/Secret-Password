@@ -13,6 +13,7 @@ import {motion} from 'framer-motion'
 
 import {Input} from '../form/Input'
 import {DollarStore} from "../zustand/DollarStore";
+import { SubmitButton } from '../form/SubmitButton';
 
 export function Projects(){
 
@@ -81,7 +82,7 @@ export function Projects(){
                 }
                 return {
                     ...project,
-                    converted_price: convertedPrice
+                    converted_price: convertedPrice,
                 };
             });
         });
