@@ -38,19 +38,32 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
   // const [project, setProject] = useState(projectData || {})
   const [project, setProject] = useState(projectData || {
     name: '',
-    budget: '',
+    budget: null,
     currency: {
       id: '',
       name: '',
+      dolar: null
     },
-    budgetTotal: null,
-    dolar: null,
     converted_price: null,
-    products: [], // novo campo para armazenar os produtos
   });
 
   // Estado do orçamento total
   const [budget, setBudget] = useState(convertedPrice || project.quantityCategory || project.quantityTime);
+  
+  /*useEffect(() => {
+    fetch(`http://localhost:5000/projects/${projectData.id}`,{
+        method: 'PATCH', // Alterar só o que foi mudado
+        headers:{
+            'Content-Type':"application/json"
+        },
+        body: JSON.stringify(project)
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        setProject(data);
+    })
+    .catch((e) => console.log(e))
+  }, [dollar, project])*/
 
   // Requisição de API para buscar as categorias
   useEffect(() => {
@@ -100,19 +113,14 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
   // Método para calcular o valor do orçamento total
   const budgetTotal = () => {
     let total = project.quantityTime * project.quantityCategory * convertedPrice;
-    setBudget(total);
+    setBudget(total.toFixed(2));
     console.log("Valor Convertido: ",convertedPrice)
     console.log("total:", total);
   };
 
-  useEffect(() => {
-    setBudget(project.quantityCategory * project.quantityTime * convertedPrice);
-    console.log("total:", budget);
-  }, [convertedPrice]);
-
   // Chamada feito para atualizar o budget quando esses valores mudarem
   useEffect(() => {
-      budgetTotal();
+     budgetTotal();
   }, [project.quantityCategory, project.quantityTime, convertedPrice]);
 
   // Método para enviar formulário
@@ -128,7 +136,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
     handleSubmit({ 
       ...project, 
       converted_price: convertedPrice,
-      budgetTotal: budget
+      budget: budget
     });
 
     console.log('Enviando os dados...');
@@ -180,7 +188,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
         },
       });
   
-      const newConvertedPrice = convertCurrency(project.price, newCurrency, project.dolar);
+      const newConvertedPrice = convertCurrency(project.price, newCurrency);
       setConvertedPrice(newConvertedPrice);
     };
 

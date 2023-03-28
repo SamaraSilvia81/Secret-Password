@@ -70,9 +70,8 @@ export function Projects(){
             .catch((e) => console.log(e))  // assim conseguiremos debuggar depois
         }, 400)
     },[dollar])  // estaremos controlando um array vazio
-    
 
-    // Atualizar todos os campos com o novo dollar
+     // Atualizar todos os campos com o novo dollar
     useEffect(() => {
         setProjects(prevProjects => {
             return prevProjects.map(project => {
@@ -87,7 +86,7 @@ export function Projects(){
             });
         });
     }, [dollar]);
-      
+
     // Método para remover o projeto  + fecth
     const removeProject = (id) => {
         fetch(`http://localhost:5000/projects/${id}`,{
@@ -125,10 +124,6 @@ export function Projects(){
             setProjects(
                 projects.map((project) => ({
                     ...project,
-                    //converted_price: (project.price * newValue).toFixed(2),
-                    //budgetTotal: (project.budget * newValue).toFixed(2),
-                    // quantityCategory: project.quantityCategory,
-                    //quantityTime: project.quantityTime
                 }))
             );
         })
@@ -154,8 +149,7 @@ export function Projects(){
                 key={project.id} 
                 id={project.id}
                 name={project.name}
-                dolar={project.dolar}
-                budget={project.budgetTotal}
+                budget={project.budget}
                 time={project?.time?.name}
                 quantityTime={project.quantityTime}
                 quantityCategory={project.quantityCategory}

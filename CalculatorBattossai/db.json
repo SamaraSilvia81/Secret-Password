@@ -2,143 +2,60 @@
   "projects": [
     {
       "name": "Maria DB",
-      "budget": "",
+      "budget": "8.00",
       "currency": {
         "id": "1",
         "name": "BRL"
       },
-      "converted_budget": null,
-      "products": [],
-      "price": "1200",
+      "converted_price": "2",
+      "price": "2",
       "category": {
-        "id": "3",
-        "name": "Appliance"
-      },
-      "quantityCategory": "20",
-      "time": {
-        "id": "3",
-        "name": "Mês"
-      },
-      "quantityTime": "12",
-      "converted_price": 1200,
-      "budgetTotal": 288000,
-      "id": 1
-    },
-    {
-      "name": "Insomnia",
-      "budget": "",
-      "currency": {
         "id": "2",
-        "name": "USD"
+        "name": "Host"
       },
-      "converted_budget": null,
-      "products": [],
-      "price": "3000",
-      "category": {
-        "id": "1",
-        "name": "GibaByte"
-      },
-      "quantityCategory": "4",
-      "quantityTime": "5",
+      "quantityCategory": "2",
       "time": {
         "id": "2",
         "name": "Semana"
       },
-      "converted_price": "6000.00",
-      "budgetTotal": 120000,
-      "id": 2
+      "quantityTime": "2",
+      "id": 1
     },
     {
-      "name": "VS Code",
-      "budget": "",
-      "currency": {
-        "id": "1",
-        "name": "BRL"
-      },
-      "converted_budget": null,
-      "products": [],
-      "price": "3456",
-      "category": {
-        "id": "5",
-        "name": "Instâncias"
-      },
-      "quantityCategory": "7",
-      "quantityTime": "9",
-      "time": {
-        "id": "1",
-        "name": "Dia"
-      },
-      "converted_price": 3456,
-      "budgetTotal": 217728,
-      "id": 3
-    },
-    {
-      "name": "Intellij IDEA - Update",
-      "budget": "",
+      "name": "Postman",
+      "budget": "54.00",
       "currency": {
         "id": "2",
         "name": "USD"
       },
-      "dolar": null,
-      "converted_budget": null,
-      "products": [],
-      "price": "4500",
+      "converted_price": "6.00",
+      "price": "3",
       "category": {
         "id": "6",
         "name": "Regras"
       },
-      "quantityCategory": "5",
-      "quantityTime": "2",
+      "quantityCategory": "3",
       "time": {
-        "id": "2",
-        "name": "Semana"
+        "id": "3",
+        "name": "Mês"
       },
-      "converted_price": "9000.00",
-      "budgetTotal": 90000,
-      "id": 4
+      "quantityTime": "3",
+      "id": 2
     },
     {
-      "name": "Teste 01 - Update",
-      "budget": "",
+      "name": "VS Code",
+      "budget": "192.00",
       "currency": {
         "id": "2",
         "name": "USD"
       },
-      "dolar": null,
-      "converted_budget": null,
-      "products": [],
+      "converted_price": "12.00",
       "price": "4",
       "category": {
         "id": "7",
         "name": "Domínios"
       },
-      "quantityCategory": "2",
-      "quantityTime": "2",
-      "time": {
-        "id": "1",
-        "name": "Dia"
-      },
-      "converted_price": "8.00",
-      "id": 5,
-      "budgetTotal": 32
-    },
-    {
-      "name": "Qualquer cosia",
-      "budget": "",
-      "currency": {
-        "id": "2",
-        "name": "USD"
-      },
-      "dolar": null,
-      "converted_budget": null,
-      "products": [],
-      "price": "5",
-      "quantityCategory": "5",
-      "quantityTime": "5",
-      "category": {
-        "id": "3",
-        "name": "Appliance"
-      },
+      "quantityCategory": "4",
       "time": {
         "id": "2",
         "name": "Semana"
@@ -214,7 +131,7 @@
     {
       "id": 2,
       "name": "USD",
-      "value": 2
+      "value": 3
     }
   ],
   "time": [

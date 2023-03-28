@@ -8,7 +8,11 @@ import {Container} from '../layout/Container'
 import {Message} from '../layout/Message'
 import {ProjectForm} from '../project/ProjectForm'
 
+import {DollarStore} from "../zustand/DollarStore";
+
 export function Project(){
+
+    const dollar = DollarStore((state) => state.dollar)
 
     // Hook específico para pegar parâmetros da URL
     const {id} = useParams()
@@ -21,6 +25,7 @@ export function Project(){
 
     // Estado que representa as mensagens
     const [message, setMessage] = useState()
+
     // Estado que representa o tipo da mensagem
     const [typeMessage, setTypeMessage] = useState()
 
@@ -90,7 +95,7 @@ export function Project(){
                                     <span>Categoria:</span> {project.category.name}
                                 </p>
                                 <p>
-                                    <span>Orçamento Total:</span> {currencySymbol} {project.budgetTotal}
+                                    <span>Orçamento Total:</span> {currencySymbol} {project.budget}
                                 </p>
                             </div>
                         ) : (

@@ -1,12 +1,13 @@
 import {BsPencil, BsFillTrashFill} from 'react-icons/bs'
 import styles from './ProjectCard.module.css';
 
-import {Input} from '../form/Input'
 import {Link} from 'react-router-dom'
 
-export function ProjectCard({id,currency,name,budget,price,convertedPrice, category,quantityCategory,quantityTime,time, handleRemove}){
+export function ProjectCard({id,currency,name,price,category,convertedPrice,quantityCategory,quantityTime,time, handleRemove}){
 
     const currencySymbol = currency === 'BRL' ? 'R$' : '$';
+
+    const budget = quantityCategory * quantityTime * convertedPrice
 
     const remove = (e) => {
         e.preventDefault()
@@ -17,7 +18,7 @@ export function ProjectCard({id,currency,name,budget,price,convertedPrice, categ
        <div className={styles.project_card}>
         <h4>{name}</h4>
         <p> 
-            <span>Preço:</span> {currencySymbol} { currency === "USD" ? convertedPrice : price}
+            <span>Preço:</span> {currencySymbol} {currency === "USD" ? convertedPrice : price}
         </p>
         <p>
             <span className={`${styles[currency?.toLowerCase()]}`}>Moeda:</span> {currency}
