@@ -28,10 +28,10 @@ export function ProjectCard({id,currency,name,price,category,convertedPrice,quan
             <span>Orçamento Total:</span>  {currencySymbolConvertido} {budget}
         </p>
         <p className={styles.time_text}>
-            <span className={`${styles[time?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')]}`}></span> {time} - {quantityTime}
+            <span className={`${styles[time?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s/g, '')]}`}></span> {time} - {quantityTime}
         </p>
         <p className={styles.category_text}>
-            <span className={`${styles[category?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')]}`}></span> {category} - {quantityCategory}
+            <span className={`${styles[category?.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s/g, '')]}`}></span> {category} - {quantityCategory}
         </p>
         <div className={styles.project_card_actions}>
             <Link to={`/project/${id}`}>

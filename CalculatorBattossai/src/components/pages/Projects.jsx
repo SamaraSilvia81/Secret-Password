@@ -72,6 +72,26 @@ export function Projects(){
     }, [dollar]);
 
     // Percorre cada projeto com USD como moeda e muda o preço e o orçamento
+   /*const updateProjects = () => {
+
+        if (projects.length > 0) {
+            projects.forEach(project => {
+              fetch(`http://localhost:5000/projects/${project.id}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    converted_price: project.converted_price,
+                    dolar: dollar,
+                    budget: project.converted_price * project.quantityCategory * project.quantityTime
+                })
+              })
+                .then(res => res.json())
+                .then(data => console.log(data))
+                .catch(err => console.log(err));
+            });
+          }
+    }*/
+   
    useEffect(() => {
     if (projects.length > 0) {
         projects.forEach(project => {
@@ -117,6 +137,8 @@ export function Projects(){
             );
         })
         .catch(e => console.log(e));
+
+       // updateProjects()
     };
 
      // Método para remover o projeto  + fecth
