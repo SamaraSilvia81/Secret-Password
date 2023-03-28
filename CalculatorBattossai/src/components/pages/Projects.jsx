@@ -13,21 +13,11 @@ import {motion} from 'framer-motion'
 
 import {Input} from '../form/Input'
 import {DollarStore} from "../zustand/DollarStore";
-import { SubmitButton } from '../form/SubmitButton';
 
 export function Projects(){
 
-    // Estado responsável pelo get do DollarStore
     const dollar = DollarStore(state => state.dollar);
-    // Estado responsável pelo set do DollarStore
     const setDollar = DollarStore(state => state.setDollar);
-
-   useEffect(() => {
-        fetch("http://localhost:5000/currencies/2")
-          .then(res => res.json())
-          .then(data => setDollar(data.value))
-          .catch(e => console.log(e));
-      }, [dollar]);
 
     const [projects, setProjects] = useState([]); // estado para salvar os projetos
     const [removeLoading, setRemoveLoading] = useState(false)
@@ -40,8 +30,7 @@ export function Projects(){
         console.log(location)
     }
 
-    // Para buscar todos os projetos
-    // Usamos o useEffect para evitar que loop infinito de requisições
+    // Puxa todos os dados atualizados
     useEffect(() => {
         setTimeout(() => {
             fetch("http://localhost:5000/projects",{
@@ -65,30 +54,73 @@ export function Projects(){
                         }
                     })
                 );
-                setRemoveLoading(true) // quando os projetos forem carregados, então ele se remove
+                setRemoveLoading(true) // quando os projetos forem carregados, então o elemento de carregamento se remove
             })
-            .catch((e) => console.log(e))  // assim conseguiremos debuggar depois
+            .catch((e) => console.log(e)) 
         }, 400)
-    },[dollar])  // estaremos controlando um array vazio
+    },[dollar])
 
-     // Atualizar todos os campos com o novo dollar
+    // Atualiza a moeda a partir do valor do input
     useEffect(() => {
-        setProjects(prevProjects => {
-            return prevProjects.map(project => {
-                let convertedPrice = project.price;
-                if (project.currency.name === "USD") {
-                    convertedPrice = project.price * dollar;
-                }
-                return {
-                    ...project,
-                    converted_price: convertedPrice,
-                };
-            });
-        });
+        fetch("http://localhost:5000/currencies/2")
+        .then(res => res.json())
+        .then(data => {
+            setDollar(data.value);
+            console.log("Dollar:", dollar)
+          })
+        .catch(e => console.log(e));
     }, [dollar]);
 
-    // Método para remover o projeto  + fecth
-    const removeProject = (id) => {
+    // Percorre cada projeto com USD como moeda e muda o preço e o orçamento
+   useEffect(() => {
+    if (projects.length > 0) {
+        projects.forEach(project => {
+          fetch(`http://localhost:5000/projects/${project.id}`, {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                converted_price: project.converted_price,
+                dolar: dollar,
+                budget: project.converted_price * project.quantityCategory * project.quantityTime
+            })
+          })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
+        });
+      }
+    }, [projects,dollar]);
+
+    // Pegar o valor do dóllar pelo input e alterar na seção de dolar do banco de dados
+    const handleDollarChange = (e) => {
+        const newValue = parseFloat(e.target.value);
+        setDollar(newValue);
+
+        fetch("http://localhost:5000/currencies/2", {
+            method: "PATCH",
+            headers: {
+            "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                value: parseFloat(newValue)
+            })
+        })
+        .then(res => res.json())  
+        .then(data => {
+            console.log(data);
+            // atualizar o valor da moeda em todos os projetos
+            setProjects(
+                projects.map((project) => ({
+                    ...project,
+                    converted_price: project.currency.name === "USD" ? project.price * newValue : project.converted_price
+                }))
+            );
+        })
+        .catch(e => console.log(e));
+    };
+
+     // Método para remover o projeto  + fecth
+     const removeProject = (id) => {
         fetch(`http://localhost:5000/projects/${id}`,{
             method: 'DELETE',
             headers: {
@@ -102,33 +134,6 @@ export function Projects(){
         })
         .catch((e) => console.log(e))
     }
-
-    const handleDollarChange = (e) => {
-
-        const newValue = parseFloat(e.target.value);
-        setDollar(newValue);
-
-        fetch("http://localhost:5000/currencies/2", {
-            method: "PATCH",
-            headers: {
-            "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                value: parseFloat(newValue)
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            // atualizar o valor da moeda em todos os projetos
-            setProjects(
-                projects.map((project) => ({
-                    ...project,
-                }))
-            );
-        })
-        .catch(e => console.log(e));
-    };
 
     return (
        <motion.div 
@@ -153,7 +158,7 @@ export function Projects(){
                 time={project?.time?.name}
                 quantityTime={project.quantityTime}
                 quantityCategory={project.quantityCategory}
-                price={project.converted_price}
+                price={project.price}
                 convertedPrice={project.converted_price}
                 currency={project?.currency?.name}
                 category={project?.category?.name}

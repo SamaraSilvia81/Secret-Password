@@ -42,28 +42,14 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
     currency: {
       id: '',
       name: '',
-      dolar: null
     },
+    price: '0,00',
+    dolar: null, // dollar,
     converted_price: null,
   });
 
   // Estado do orçamento total
   const [budget, setBudget] = useState(convertedPrice || project.quantityCategory || project.quantityTime);
-  
-  /*useEffect(() => {
-    fetch(`http://localhost:5000/projects/${projectData.id}`,{
-        method: 'PATCH', // Alterar só o que foi mudado
-        headers:{
-            'Content-Type':"application/json"
-        },
-        body: JSON.stringify(project)
-    })
-    .then((res) => res.json())
-    .then((data) => {
-        setProject(data);
-    })
-    .catch((e) => console.log(e))
-  }, [dollar, project])*/
 
   // Requisição de API para buscar as categorias
   useEffect(() => {
@@ -136,6 +122,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
     handleSubmit({ 
       ...project, 
       converted_price: convertedPrice,
+      dolar: dollar,
       budget: budget
     });
 
@@ -194,7 +181,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
 
     // Altere o método handleCurrency para atualizar apenas o estado da moeda selecionada
     const handlePriceChange = (e) => {
-      const priceValue = e.target.value;
+      const priceValue = e.target.value
       setProject({
         ...project,
         price: priceValue
@@ -209,26 +196,26 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
          <div className={`${styles.column} ${styles.column01}`}>
             <Input 
               type='text' 
-              text='Nome do Fabricante' 
+              text='Item do Produto' 
               name='name'
-              placeholder='Insira o nome do fabricante'
+              placeholder='Insira o item do produto'
               value={project.name ? project.name : ''}
               handleOnChange={handleChange}
             />
+            <Select 
+              name='currency' 
+              text='Selecione a moeda'
+              options={currencies}
+              handleOnChange={handleCurrency}
+              value={project.currency ? project.currency.id: ''}
+            />
             <Input 
               type='number' 
-              text='Preço do Produto' 
+              text='Preço do Item' 
               name='price'
-              placeholder='Insira o preço do produto'
+              placeholder='Insira o preço do item'
               value={project.price ? project.price : ''}
               handleOnChange={handlePriceChange}
-            />
-            <Select 
-                name='currency' 
-                text='Selecione a moeda'
-                options={currencies}
-                handleOnChange={handleCurrency}
-                value={project.currency ? project.currency.id: ''}
             />
             <Input
                 type="number"
@@ -240,7 +227,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
             />
             <Select 
               name='category_id' 
-              text='Selecione a categoria'
+              text='Especifique a Unidade de Medida'
               options={categories}
               handleOnChange={handleCategory}
               value={project.category ? project.category.id: ''}
@@ -249,7 +236,7 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
          <div className={styles.column}>
           <Input 
               type='number' 
-              text='Quantidade do produto' 
+              text='Quantidade unitária do item' 
               name='quantityCategory'
               placeholder='Tempo da categoria: 2 Hosts...'
               value={project.quantityCategory ? project.quantityCategory : ''}
@@ -259,14 +246,14 @@ export function ProjectForm({btnText, handleSubmit, projectData}){
             />
               <Select 
               name='time_id' 
-              text='Selecione o período'
+              text='Especifique a unidade multiplicadora'
               options={times}
               handleOnChange={handleTime}
               value={project.time ? project.time.id: 'Mês'}
             />
               <Input 
               type='number' 
-              text='Quantidade de tempo' 
+              text='Quantidade unitária da unidade multiplicadora' 
               name='quantityTime'
               placeholder='Tempo do período: 2 semanas...'
               value={project.quantityTime ? project.quantityTime : ''}

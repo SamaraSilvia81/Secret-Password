@@ -1,92 +1,50 @@
 {
   "projects": [
     {
-      "name": "Maria DB",
-      "budget": "8.00",
+      "name": "Servidores (coletor de logs)",
+      "budget": 2.5,
       "currency": {
         "id": "1",
         "name": "BRL"
       },
-      "converted_price": "2",
-      "price": "2",
+      "dolar": 5.18,
+      "converted_price": "2.50",
+      "price": "2.50",
       "category": {
-        "id": "2",
-        "name": "Host"
+        "id": "1",
+        "name": "GibaByte"
       },
-      "quantityCategory": "2",
-      "time": {
-        "id": "2",
-        "name": "Semana"
-      },
-      "quantityTime": "2",
-      "id": 1
-    },
-    {
-      "name": "Postman",
-      "budget": "54.00",
-      "currency": {
-        "id": "2",
-        "name": "USD"
-      },
-      "converted_price": "6.00",
-      "price": "3",
-      "category": {
-        "id": "6",
-        "name": "Regras"
-      },
-      "quantityCategory": "3",
+      "quantityCategory": "1",
       "time": {
         "id": "3",
         "name": "Mês"
       },
-      "quantityTime": "3",
-      "id": 2
+      "quantityTime": "1",
+      "id": 1,
+      "dollar": 2,
+      "conver": "8.00"
     },
     {
-      "name": "VS Code",
-      "budget": "192.00",
+      "name": "Giga de logs analisados",
+      "budget": 2.59,
       "currency": {
         "id": "2",
         "name": "USD"
       },
-      "converted_price": "12.00",
-      "price": "4",
+      "dolar": 5.18,
+      "converted_price": "2.59",
+      "price": "0.50",
       "category": {
-        "id": "7",
-        "name": "Domínios"
+        "id": "1",
+        "name": "GibaByte"
       },
-      "quantityCategory": "4",
+      "quantityCategory": "1",
       "time": {
-        "id": "2",
-        "name": "Semana"
+        "id": "3",
+        "name": "Mês"
       },
-      "converted_price": "15.00",
-      "budgetTotal": 375,
-      "id": 6
-    },
-    {
-      "name": "Qualquer cosia 2",
-      "budget": "",
-      "currency": {
-        "id": "2",
-        "name": "USD"
-      },
-      "budgetTotal": 16,
-      "dolar": null,
-      "converted_price": "4.00",
-      "products": [],
-      "price": "2",
-      "quantityCategory": "2",
-      "quantityTime": "2",
-      "time": {
-        "id": "2",
-        "name": "Semana"
-      },
-      "category": {
-        "id": "7",
-        "name": "Domínios"
-      },
-      "id": 7
+      "quantityTime": "1",
+      "id": 3
     }
   ],
   "categories": [
@@ -131,21 +89,21 @@
     {
       "id": 2,
       "name": "USD",
-      "value": 3
+      "value": 5.18
     }
   ],
   "time": [
     {
       "id": 1,
-      "name": "Dia"
+      "name": "Mês"
     },
     {
       "id": 2,
-      "name": "Semana"
+      "name": "Pessoa"
     },
     {
       "id": 3,
-      "name": "Mês"
+      "name": "Caso de Uso"
     }
   ]
 }
